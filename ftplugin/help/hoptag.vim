@@ -2,11 +2,13 @@ let b:did_ftplugin = v:true
 
 " NOTE: pattern is from $VIMRUNTIME/syntax/help.vim
 let s:tag_pattern = [
-      \ '\\\@<!|[#-)!+-~]\+|', '\*[#-)!+-~]\+\*\s', '\*[#-)!+-~]\+\*$',
+      "\ link
+      \ '\\\@<!|[#-)!+-~]\+|',
+      "\ option
       \ "'[a-z]\\{2,\\}'", "'t_..'",
-      \ '<[-a-zA-Z0-9_]\+>', '<[SCM]-.>',
-      \ 'CTRL-.', 'CTRL-SHIFT-.', 'CTRL-Break', 'CTRL-PageUp', 'CTRL-PageDown',
-      \ 'CTRL-Insert', 'CTRL-Del', 'CTRL-{char}',
+      "\ key notation
+      \ '<[-a-zA-Z0-9_]\+>', '<[SCM]-.>', 'CTRL-\%(SHIFT-\)\?.',
+      \ 'CTRL-\%(Break\|PageUp\|PageDown\|Insert\|Del\|{char}\)',
       \ ]->join('\|')
 
 function! s:hop_tag(direction) abort
