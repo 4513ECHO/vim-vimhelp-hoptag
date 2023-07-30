@@ -11,9 +11,14 @@ let s:tag_pattern = [
       \ 'CTRL-\%(Break\|PageUp\|PageDown\|Insert\|Del\|{char}\)',
       \ ]->join('\|')
 
+function! s:search(flags) abort
+  call search(s:tag_pattern, a:flags, 0, 500,
+        \ { -> synID(line('.'), col('.'), 1)->synIDattr('name') ==# 'helpExample' })
+endfunction
+
 function! s:hop_tag(direction) abort
   let flags = (a:direction ? '' : 'b') .. 'W'
-  call range(v:count1)->map({ -> search(s:tag_pattern, flags, 0, 500) })
+  call range(v:count1)->map({ -> s:search(flags) })
 endfunction
 
 nnoremap <buffer> <Plug>(hoptag-next) <Cmd>call <SID>hop_tag(1)<CR>
