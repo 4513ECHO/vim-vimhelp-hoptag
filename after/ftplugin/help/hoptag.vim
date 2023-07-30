@@ -1,5 +1,3 @@
-let b:did_ftplugin = v:true
-
 " NOTE: pattern is from $VIMRUNTIME/syntax/help.vim
 let s:tag_pattern = [
       "\ link
