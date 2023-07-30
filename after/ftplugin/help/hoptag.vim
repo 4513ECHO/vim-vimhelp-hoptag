@@ -11,7 +11,9 @@ let s:tag_pattern = [
 
 function! s:search(flags) abort
   call search(s:tag_pattern, a:flags, 0, 500,
-        \ { -> synID(line('.'), col('.'), 1)->synIDattr('name') ==# 'helpExample' })
+        \ { -> synID(line('.'), col('.'), 1)->synIDattr('name') ==# 'helpExample' ||
+        \   (has('nvim') && luaeval('vim.treesitter.get_captures_at_cursor()') ==# ['text.literal.block'])
+        \ })
 endfunction
 
 function! s:hop_tag(direction) abort

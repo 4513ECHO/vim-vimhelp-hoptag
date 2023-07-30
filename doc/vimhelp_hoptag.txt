@@ -19,14 +19,14 @@ INTRODUCTION                                     *vimhelp-hoptag-introduction*
 *vim-vimhelp-hoptag* ( *vimhelp-hoptag* ) is a plugin to hop around |tags| in
 the |help| buffer.
 
-The main idea is inspired by w3m's `NEXT_LINK`/`PREV_LINK` feature.
+The main idea is inspired by w3m's `NEXT_LINK` / `PREV_LINK` feature.
 
 I think the most common reason for moving the cursor in the |help| buffer is
 to jump from the |tag| under the cursor by |CTRL-]| or to scroll the window.
 This plugin saves time to move the cursor by hopping around places of |tags|
 directly.
 
-Vim v9.0.0000+ or Neovim v0.8.0+ is required.
+Vim v9.0.0000+ or Neovim v0.9.0+ is required.
 
 Example: >
 	autocmd Filetype help call s:setup_hoptag()
